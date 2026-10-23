@@ -1,0 +1,32 @@
+# 브랜드 무드보드 이미지 생성
+
+## 목적
+브랜드/작품 비주얼 아이덴티티를 위한 무드보드를 만들고 싶습니다.
+4개의 요소가 한 결로 묶이는 일관된 분위기의 레퍼런스 이미지가 필요합니다.
+
+## 브랜드/작품 컨셉
+브랜드/작품 컨셉 한 줄 설명: 더 매치업/비프가 있던 인플루언서들 간의 격투 컨텐츠
+타깃 페르소나: 억눌린 공격성과 남성적 질서(강자 vs 약자)의 회복을 대리 충족하고 싶어 하는 응징 카타르시스 수요자, 10~30대 남성 위주
+
+## 공통 스타일 (4컷 모두 동일하게 적용)
+- 무드: dark and gritty, intense dramatic tension, cold violence and hot passion, underground combat, raw and aggressive
+- 컬러: deep pitch black, crimson blood red accent, polished metallic chrome, silver contrast
+- 조명·구도: high-contrast chiaroscuro lighting, harsh spotlights, rim lighting, atmospheric haze, wide dynamic angle
+
+스타일:
+- 스타일: photorealistic
+
+## 레이아웃
+2×2 그리드, 4개의 정사각형 이미지가 하나의 캔버스 안에 균등하게 배치
+각 사진 사이에 얇은 흰 여백
+
+## 4컷 구성
+- 좌측 상단: 중앙에 로고와 두 인물이 mma 글러브를 끼고 대립한 구도.
+- 우측 상단: 인플루언서 간(비프가 있는) 격투임을 나타내는 인스타그램, 유튜브 등 로고들 끼리의 대립 이미지
+- 좌측 하단: 처절한 격투 장면, 한 명은 ko 되어있으며 한 명은 팔을 벌려 감격해 하는, 이긴 사람에겐 챔피언 벨트가 둘러져있는 장면.
+- 우측 하단: 로고를 웅장하게, 피비린내 나게 표현
+
+## 주의사항
+- 4컷 모두 위 [공통 스타일]을 동일하게 적용
+- 글자·로고는 넣지 않기
+- 4컷의 톤과 분위기가 한 브랜드처럼 일관되게
