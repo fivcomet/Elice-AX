@@ -122,9 +122,7 @@ var Fr={},Gr={};var Wr,Hr=function(){function t(t,e,n){var i=this;this._sleepAft
     <p class="sub">역 · 요일 · 시간대를 눌러 혼잡도를 확인하세요 · 요일/공휴일 값은 가정 기반 <b>추정치</b>입니다</p>
   </div>
   <div style="display:flex;gap:8px;flex-wrap:wrap">
-    <button class="primary" id="btnChat" onclick="location.href='chatbot.html'">💬 챗봇</button>
     <button class="primary" id="btnInfo">📊 데이터·가정 정보</button>
-    <button class="primary" id="btnDownload" title="이 대시보드 파일(HTML+데이터)을 그대로 저장합니다">⬇ 파일 다운로드</button>
   </div>
 </header>
 
@@ -332,6 +330,8 @@ window.DASH_DATA = {"hourLabels":["04~05시","05~06시","06~07시","07~08시","0
 
   // ---------------- 컨트롤 초기화
   const selLine = $('selLine'), selStation = $('selStation'), selHour = $('selHour'), selDay = $('selDay');
+  // 저장된 화면을 다시 열 때 목록이 두 번 쌓이지 않도록 먼저 비움
+  selLine.innerHTML = ''; selHour.innerHTML = ''; selDay.innerHTML = '';
   D.lines.forEach((name, i) => selLine.add(new Option(name, i)));
   selLine.value = state.line;
   D.hourLabels.forEach((h, i) => selHour.add(new Option(h, i)));
@@ -350,6 +350,7 @@ window.DASH_DATA = {"hourLabels":["04~05시","05~06시","06~07시","07~08시","0
 
   function buildChips() {
     const wrap = $('dayChips');
+    wrap.innerHTML = '';
     DAY_NAMES.forEach((nm, t) => {
       const b = document.createElement('button');
       b.className = 'chip';
@@ -360,6 +361,7 @@ window.DASH_DATA = {"hourLabels":["04~05시","05~06시","06~07시","07~08시","0
   }
   function buildStrip() {
     const wrap = $('hourStrip');
+    wrap.innerHTML = '';
     for (let h = 0; h < 24; h++) {
       const col = document.createElement('div');
       col.className = 'hcol';
@@ -374,6 +376,7 @@ window.DASH_DATA = {"hourLabels":["04~05시","05~06시","06~07시","07~08시","0
   let charts = null;
   function ensureCharts() {
     if (charts || typeof echarts === 'undefined') { if (!charts && typeof echarts === 'undefined') $('cdnWarn').hidden = false; return charts; }
+    ['pattern', 'daycmp', 'heat', 'rank', 'trend'].forEach((id) => { const el = $(id); el.innerHTML = ''; el.removeAttribute('_echarts_instance_'); });
     charts = { pattern: echarts.init($('pattern')), daycmp: echarts.init($('daycmp')), heat: echarts.init($('heat')), rank: echarts.init($('rank')), trend: echarts.init($('trend')) };
     window.addEventListener('resize', () => Object.values(charts).forEach((ch) => ch.resize()));
     charts.daycmp.on('click', (p) => { if (p.componentType === 'series') { state.day = p.dataIndex; update(); } });
@@ -541,18 +544,6 @@ window.DASH_DATA = {"hourLabels":["04~05시","05~06시","06~07시","07~08시","0
   selDay.addEventListener('change', (e) => { state.day = +e.target.value; update(); });
   $('btnPrev').onclick = () => { state.hour = (state.hour + 23) % 24; update(); };
   $('btnNext').onclick = () => { state.hour = (state.hour + 1) % 24; update(); };
-
-  $('btnDownload').onclick = () => {
-    const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-    const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = '서울지하철_혼잡도_대시보드.html';
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setTimeout(() => URL.revokeObjectURL(a.href), 5000);
-  };
 
   let infoBuilt = false;
   $('btnInfo').onclick = () => {

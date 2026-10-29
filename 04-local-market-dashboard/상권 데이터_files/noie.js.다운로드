@@ -1,1 +1,0 @@
-!function(e){var i=e.toLowerCase();if(/win/.test(i)&&("Netscape"==navigator.appName&&-1!=i.indexOf("trident")||-1!=i.indexOf("msie")||-1!=e.indexOf("Edge"))){var n=encodeURIComponent(window.location.href);window.location.replace("https://static.elice.io/ie/index.html?continue_to="+n)}}(navigator.userAgent);
