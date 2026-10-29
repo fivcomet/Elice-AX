@@ -1,0 +1,5 @@
+books.toscrape.com 미스터리 분류 첫 쪽(https://books.toscrape.com/catalogue/category/books/mystery_3/index.html)에서 책 제목과 가격을 모아 books.csv로 저장해줘.
+제목은 h3 안 a 태그의 title 속성에서 꺼내줘. 실습 1 Helpy Code 완료 화면필요한 설치와 실행까지 해줘.
+
+ttps://ko.wikipedia.org/wiki/대한민국의_행정_구역 문서에서 시·도별 행정 구역, 넓이, 인구가 있는 표를 sido.csv로 저장해줘.
+엑셀에서 한글이 안 깨지게 webfetch 허락 창실습 2 Helpy Code 완료 화면utf-8-sig로 저장해줘.

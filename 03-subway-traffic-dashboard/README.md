@@ -1,6 +1,6 @@
 # 03. 서울 지하철 혼잡도 대시보드
 
-🔗 **대시보드 열기:** https://fivcomet.github.io/Elice-AX/03-subway-traffic-dashboard/subway-traffic-dashboard.html
+🔗 **[대시보드 열기](https://fivcomet.github.io/Elice-AX/03-subway-traffic-dashboard/subway-traffic-dashboard.html)**
 
 서울 지하철 호선·역별 시간대별 승하차 인원 데이터로 만든 인터랙티브 대시보드입니다.
 호선, 역, 시간대, 요일을 선택하면 혼잡도를 확인할 수 있습니다.

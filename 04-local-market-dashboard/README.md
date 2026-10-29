@@ -1,6 +1,6 @@
 # 04. 상가(상권) 정보 요약 대시보드
 
-🔗 **대시보드 열기:** https://fivcomet.github.io/Elice-AX/04-local-market-dashboard/
+🔗 **[대시보드 열기](https://fivcomet.github.io/Elice-AX/04-local-market-dashboard/)**
 
 소상공인시장진흥공단의 전국 상가(상권) 정보를 정리해 지역·업종별로 집계한 대시보드입니다.
 지역을 선택하면 모든 그래프가 그 지역 기준으로 바뀌고, 분석 리포트를 내려받을 수 있습니다.
