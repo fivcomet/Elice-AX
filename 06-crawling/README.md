@@ -1,6 +1,6 @@
 # 06. 웹 크롤링
 
-🔗 **[대시보드 열기](https://fivcomet.github.io/Elice-AX/06-crawling/dashboard.html)**
+🔗 **[지역별 인구 밀집 대시보드 열기](https://fivcomet.github.io/Elice-AX/06-crawling/dashboard.html)**
 
 `requests`와 `BeautifulSoup`으로 웹페이지에서 데이터를 수집해 CSV로 저장하고, 그 데이터로 시각화한 실습입니다.
 
