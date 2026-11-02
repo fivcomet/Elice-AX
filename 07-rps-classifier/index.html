@@ -1,0 +1,111 @@
+<style>
+body {
+  font-family: sans-serif;   /* 글꼴을 깔끔한 고딕 계열로 */
+  text-align: center;        /* 전부 가운데 정렬 */
+  background: #f5f5f5;       /* 연한 회색 배경 */
+}
+h1 {
+  color: #333;
+}
+button {
+  padding: 10px 24px;        /* 안쪽 여백 (위아래 10, 좌우 24) */
+  font-size: 16px;
+  border: none;              /* 기본 테두리 제거 */
+  border-radius: 8px;        /* 모서리 둥글게 */
+  background: #4CAF50;       /* 초록색 */
+  color: white;
+  cursor: pointer;           /* 마우스 올리면 손가락 모양 */
+}
+button:hover {
+  background: #45a049;       /* 마우스 올렸을 때 조금 진하게 */
+}
+#webcam-container {
+  margin: 20px auto;         /* 위아래 20, 좌우 auto = 가운데 정렬 */
+}
+#webcam-container canvas {
+  border-radius: 12px;
+  border: 4px solid #4CAF50;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);  /* 살짝 그림자 */
+}
+#label-container div {
+  background: white;
+  margin: 6px auto;
+  padding: 10px;
+  width: 200px;              /* 웹캠 너비랑 맞춤 */
+  border-radius: 8px;
+  font-size: 18px;
+}
+#label-container div.active {
+  background: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+</style>
+
+
+<div>묵찌빠 인식기 ✊✌️🖐️</div>
+<button type="button" onclick="init()">Start</button>
+<div id="webcam-container"></div>
+<div id="label-container"></div>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+<script type="text/javascript">
+    // More API functions here:
+    // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+    // the link to your model provided by Teachable Machine export panel
+    const URL = "./";
+
+    let model, webcam, labelContainer, maxPredictions;
+
+    // Load the image model and setup the webcam
+    async function init() {
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
+
+        // load the model and metadata
+        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+        // or files from your local hard drive
+        // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+
+        // Convenience function to setup a webcam
+        const flip = true; // whether to flip the webcam
+        webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+        await webcam.setup(); // request access to the webcam
+        await webcam.play();
+        window.requestAnimationFrame(loop);
+
+        // append elements to the DOM
+        document.getElementById("webcam-container").appendChild(webcam.canvas);
+        labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < maxPredictions; i++) { // and class labels
+            labelContainer.appendChild(document.createElement("div"));
+        }
+    }
+
+    async function loop() {
+        webcam.update(); // update the webcam frame
+        await predict();
+        window.requestAnimationFrame(loop);
+    }
+
+    // run the webcam image through the image model
+    async function predict() {
+        // predict can take in an image, video or canvas html element
+        const prediction = await model.predict(webcam.canvas);
+        for (let i = 0; i < maxPredictions; i++) {
+    const classPrediction =
+        prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+    labelContainer.childNodes[i].innerHTML = classPrediction;
+
+    // ★ 추가: 확률이 0.5 넘으면 'active' 표시 붙이기, 아니면 떼기
+    if (prediction[i].probability > 0.5) {
+        labelContainer.childNodes[i].classList.add("active");
+    } else {
+        labelContainer.childNodes[i].classList.remove("active");
+    }
+}
+    }
+</script>
