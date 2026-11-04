@@ -15,10 +15,12 @@ AI 업무 적용 기획, 생성형 AI 브랜딩, 데이터 대시보드, 파이�
 | 04 | [상가(상권) 정보 대시보드](https://github.com/fivcomet/Elice-AX/tree/main/04-local-market-dashboard) | 전국 상가 데이터를 지역·업종별로 집계한 대시보드 | [대시보드 열기](https://fivcomet.github.io/Elice-AX/04-local-market-dashboard/) |
 | 05 | [파이썬 기초](https://github.com/fivcomet/Elice-AX/blob/main/python-basic.ipynb) | 변수, 자료형, 연산자, 문자열, 입력, 조건문, 반복문 | [Colab에서 열기](https://colab.research.google.com/github/fivcomet/Elice-AX/blob/main/python-basic.ipynb) |
 | 06 | [웹 크롤링](https://github.com/fivcomet/Elice-AX/tree/main/06-crawling) | requests·BeautifulSoup으로 데이터를 수집해 시각화 | [대시보드 열기](https://fivcomet.github.io/Elice-AX/06-crawling/dashboard.html) |
+| 08 | [서울 아파트 거래가격 예측 모델](https://github.com/fivcomet/Elice-AX/tree/main/08-seoul-apt-price) | 실거래 데이터 정제 후 모델 비교·검증 후 경량화(100MB → 11MB), R² 0.924 | [README 보기](https://github.com/fivcomet/Elice-AX/tree/main/08-seoul-apt-price) |
+| 09 | [따릉이 수요 예측 모델](https://github.com/fivcomet/Elice-AX/tree/main/09-bike-demand) | 날씨·시간 데이터 탐색 후 선형회귀·랜덤포레스트 비교, R² 0.915 | [README 보기](https://github.com/fivcomet/Elice-AX/tree/main/09-bike-demand) |
 
 ## 사용 도구
 
-Python · Google Colab · requests · BeautifulSoup · HTML/CSS/JavaScript · ECharts · Chart.js · 생성형 AI(이미지·영상·문서)
+Python · Google Colab · pandas · scikit-learn · matplotlib · requests · BeautifulSoup · HTML/CSS/JavaScript · ECharts · Chart.js · 생성형 AI(이미지·영상·문서)
 
 ## 참고
 
